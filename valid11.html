@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <script>
+        const regex = new RegExp("[a-z]");
+    //mail validation
+        function valid_mail(){
+            var regex2 = new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
+           var md = f.m.value;
+            if(regex2.test(md)){
+                //valid;
+                document.getElementById('ss3').innerHTML="valid";
+            }
+            else if(md==""){
+                document.getElementById('s3').innerHTML="*required";
+            }
+            else{
+                alert("valid mail id plz");
+            }
+        }
+    //name validation
+        function valid_name(){
+            var nam = f.n.value;
+            if(regex.test(nam)){
+                //alert("valid");
+                document.getElementById('ss').innerHTML="valid";
+            }
+            else if(nam==""){
+                document.getElementById('s').innerHTML="*required";
+            }
+            else{
+                alert("proper name plz");
+            }
+        }
+    //pswd validation
+        function valid_pswd(){
+            var pwd = f.p.value;
+            if(regex.test(pwd)){
+                //green valid
+                document.getElementById('ss2').innerHTML="valid";
+            }
+            else if(pwd==""){
+                document.getElementById('s2').innerHTML="*required";
+            }
+            else{
+                alert("strong password plz");
+            }
+        }
+    //phno validation
+        function valid_phno(){
+            var no = f.num.value;
+           var regex3 = new RegExp("[0-9]");
+            if(regex3.test(no) && no.length==10){
+                //valid;
+                document.getElementById('ss4').innerHTML="valid";
+            }
+            else if(no==""){
+                document.getElementById('s4').innerHTML="*required";
+            }
+            else{
+                alert("valid number plz");
+            }
+        }
+    //gender validation
+        function valid_radios(){
+            var radios = document.getElementsByName('r');
+           if(radios[0].checked == true || radios[1].checked == true){
+            //valid;
+            document.getElementById('ss5').innerHTML="valid";
+           }
+           else{
+            document.getElementById('s5').innerHTML="*required";
+           }
+        }
+    //form validation
+        function val(){
+           valid_name();
+           valid_pswd();
+           valid_mail();
+           valid_phno();
+           valid_radios();
+        }
+    </script>
+    <body>
+        <form id="f" style="margin-left:400px;">
+            <h4> FILL THE REGISTRATION FORM CAREFULLY </h4>
+            Enter Name: <input type="text" size="40" id="n" required>
+            <span id="s" style="color:red;"></span>
+            <span id="ss" style="color:rgb(15, 108, 15);"></span><br><br>
+            Password : <input type="password" size="40" id="p" required>
+            <span id="s2" style="color:red;"></span>
+            <span id="ss2" style="color:rgb(15, 108, 15);"></span><br><br>
+            Email ID : <input type="text" id="m" size="40" required>
+            <span id="s3" style="color:red;"></span>
+            <span id="ss3" style="color:rgb(15, 108, 15);"></span><br><br>
+            Phone Number : <input type="text" placeholder="10 digit mobile number" id="num" size="40" required>
+            <span id="s4" style="color:rgb(231, 72, 72);"></span>
+            <span id="ss4" style="color:rgb(15, 108, 15);"></span><br><br>
+            Gender : <input type="radio" id="r" name="r">Male<input type="radio" id="r" name="r">Female
+            <span id="s5" style="color:rgb(247, 7, 7);"></span>
+            <span id="ss5" style="color:rgb(15, 108, 15);"></span><br><br>
+            Languages Known :<p style="margin-left:125px;"><input type="checkbox" id="tamil" name="tamil" value="tamil">Tamil
+            <br><input type="checkbox" id="telugu" name="telugu" value="telugu">Telugu
+            <br><input type="checkbox" id="hindi" name="hindi" value="hindi">Hindi
+            <br><input type="checkbox" id="english" name="english" value="english">English</p><br><br>
+            Address : <br><textarea name="area" id="area" cols="30" rows="10"></textarea>
+            <button type="submit" style="margin-left:70px;" onclick="return val()">SUBMIT</button>
+        </form>
+    </body>
+    </html>
+    
